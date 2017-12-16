@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href='/stylesheets/bootstrap.min.css'>
+    <title><%= title %></title>
+    <style>
+        header{
+            width: 100%;
+            height: 80px;
+            background-color: orange;
+            margin-top: -20px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1 style="line-height: 80px;"><%= title %></h1>
+</header>
+<table class="table table-hover" style="margin-top: 30px">
+    <tr>
+        <th class="text-center">姓名</th>
+        <th class="text-center">年龄</th>
+        <th class="text-center">性别</th>
+        <th class="text-center">号码</th>
+        <th class="text-center">邮箱</th>
+        <th class="text-center">备注</th>
+    </tr>
+    <% docs.forEach(function(doc){ %>
+    <tr>
+        <th class="text-center"><%= doc.name %></th>
+        <th class="text-center"><%= doc.age %></th>
+        <th class="text-center"><%= doc.gender %></th>
+        <th class="text-center"><%= doc.phone %></th>
+        <th class="text-center"><%= doc.email %></th>
+        <th class="text-center"><%= doc.detail %></th>
+    </tr>
+    <% }) %>
+</table>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href='/stylesheets/bootstrap.min.css'>
+    <title><%= title %></title>
+    <style type="text/css">
+    	header{
+  		width: 100%;
+  		height: 80px;
+  		background-color: orange;
+  		color: white;
+  		margin-top: -20px;
+  	}
+    </style>
+</head>
+<body>
+	<header>
+		<h1 style="line-height: 80px;"><%= title %></h1>
+	</header>
+
+<div class="container">
+    <form action="" method="post" class="form-horizontal" role="form">
+        <!-- 姓名 -->
+        <div class="form-group">
+            <label for="name"  control-label">姓名:</label>
+            <input type="text"  name="name" id="name" required pattern="^[\u4e00-\u9fa5]{2,4}$" placeholder="请输入名字">
+        </div>
+        <!-- 年龄 -->
+        <div class="form-group">
+            <label for="age" control-label">年龄:</label>
+            <input type="number" name="age" id="age" required value="20" step="1">
+        </div>
+        <!-- 性别 -->
+        <div class="form-group">
+            <label control-label">性别:</label>
+            <label for="male" class="radio-inline">
+                <input type="radio" name="gender" id="male" value="男" checked />男
+            </label>
+            <label for="female" class="radio-inline">
+                <input type="radio" name="gender" id="female" value="女" />女
+            </label>
+        </div>
+        <!-- 号码 -->
+        <div class="form-group">
+            <label for="phone" control-label">号码:</label>
+            <input type="tel" name="phone" id="phone" required pattern="^1[3|4|5|7|8]\d{9}$" placeholder="请输入号码">
+        </div>
+        <!-- 邮箱 -->
+        <div class="form-group">
+            <label for="email" control-label">邮箱:</label>
+            <input type="email" name="email" id="email" required pattern="^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$" placeholder="请输入邮箱">
+        </div>
+        <!-- 备注 -->
+        <div class="form-group">
+            <label for="detail" control-label">备注:</label>
+            <textarea name="detail" id="detail" >无</textarea>
+        </div>
+        <button class="btn-primary" style="width: 90%;height: 50px;margin-left: 25px">添加</button>
+    </form>
+</div>
+</body>
+</html>
