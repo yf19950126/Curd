@@ -9,14 +9,18 @@ var multer = require('multer');
 module.exports = function (app) {
     //首页
     app.get('/',function (req,res) {
+        var page = parseInt(req.query.page) || 1;
         //展示信息
-        Post.getAll(null,function(err,docs){
+        Post.getAll(null,page,function(err,docs,total){
             if(err){
                 req.flash("error",err);
                 return res.redirect("/");
             }
             res.render("index",{
                 title:"学生信息管理",
+                page:page,
+                isFirstPage:(page - 1) * 5 == 0,
+                isLastPage:(page - 1) * 5 + docs.length == total,
                 docs:docs,
                 success:req.flash("success").toString(),
                 error:req.flash("error").toString()

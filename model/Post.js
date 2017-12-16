@@ -45,23 +45,36 @@ Post.prototype.save = function (callback) {
         })
     })
 }
-Post.getAll= function(name,callback){
+Post.getAll= function(name,page,callback){
     // 打开数据库
-    mongodb.open(function(err,db){
-        if(err){
+    mongodb.open(function(err,db) {
+        if (err) {
             return callback(err);
         }
-        db.collection("student",function(err,collection){
-            if(err){
+        db.collection("student", function (err, collection) {
+            if (err) {
                 mongodb.close();
                 return callback(err);
             }
-            collection.find().toArray(function(err,docs){
-                mongodb.close();
-                if(err){
-                    return  callback(err);
+            var query = {}
+            if (name) {
+                query.name = name;
+            }
+            collection.count(query, function (err, total) {
+                if (err) {
+                    mongodb.close();
+                    return callback(err);
                 }
-                return callback(null,docs);
+                collection.find(query, {
+                    skip: (page - 1) * 5,
+                    limit: 5
+                }).toArray(function (err, docs) {
+                    mongodb.close();
+                    if (err) {
+                        return callback(err);
+                    }
+                    return callback(null, docs,total);
+                })
             })
         })
     })

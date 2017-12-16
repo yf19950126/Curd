@@ -1,0 +1,13 @@
+<br>
+<div style="width:150px;margin-left: 900px" >
+    <% if(!isFirstPage){%>
+    <span class="prepage" style="margin-left: 10px">
+        <a href="?page=<%= page - 1 %>">上一页</a>
+    </span>
+    <% } %>
+    <% if(!isLastPage){%>
+    <span class="nextpage"  style="margin-left: 50px"  >
+        <a href="?page=<%= page + 1 %>">下一页</a>
+    </span>
+    <% } %>
+</div>
