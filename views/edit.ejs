@@ -41,7 +41,7 @@
 <form method="post" action="/edit">
     <div class="form-group">
         <label for="name"  control-label">姓名:</label>
-        <input type="text" disabled  name="name" id="name" required pattern="^[\u4e00-\u9fa5]{2,4}$" value="<%= doc.name %>">
+        <input type="text" name="name" id="name" required pattern="^[\u4e00-\u9fa5]{2,4}$" value="<%= doc.name %>">
     </div>
     <!-- 年龄 -->
     <div class="form-group">
