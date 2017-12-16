@@ -67,7 +67,7 @@ Post.getAll= function(name,callback){
     })
 }
 //编辑
-Post.edit = function (name,age,gender,phone,email,detail,callback) {
+Post.edit = function (name,age,callback) {
     mongodb.open(function (err,db) {
         if(err){
             return callback(err);
@@ -79,11 +79,7 @@ Post.edit = function (name,age,gender,phone,email,detail,callback) {
             }
             collection.findOne({
                 name:name,
-                age:age,
-                gender:gender,
-                phone:phone,
-                email:email,
-                detail:detail
+                age:age
             },function (err,doc) {
                 mongodb.close();
                 if(err){

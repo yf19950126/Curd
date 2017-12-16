@@ -51,12 +51,12 @@
                 <tr>
                     <th class="text-center"><%= doc.name %></th>
                     <th class="text-center"><%= doc.age %></th>
-                    <th class="text-center"><%= doc.gender %></th>
+                    <th class="text-center"><%= doc.gender=="男" ? "男" : "女"%></th>
                     <th class="text-center"><%= doc.phone %></th>
                     <th class="text-center"><%= doc.email %></th>
                     <th class="text-center"><%= doc.detail %></th>
                     <th class="text-center">
-                        <a href="/edit/<%= doc.name %>/<%= doc.age %>/<%= doc.gender %>/<%= doc.phone %>/<%= doc.email %>/<%= doc.detail %>/">
+                        <a href="/edit/<%= doc.name %>/<%= doc.age %>">
                             <button class="btn btn-danger">编辑</button>
                         </a>
                     </th>

@@ -62,8 +62,8 @@ module.exports = function (app) {
         });
     });
     //编辑
-    app.get('/edit/:name/:age/:gender/:phone/:email/:detail',function (req,res) {
-        Post.edit(req.params.name,req.params.age,req.params.gender,req.params.phone,req.params.email,req.params.detail,function (err,doc) {
+    app.get('/edit/:name/:age',function (req,res) {
+        Post.edit(req.params.name,req.params.age,function (err,doc) {
             if(err){
                 req.flash('error',err);
                 return res.redirect('/')
