@@ -35,6 +35,14 @@
         </form>
     </span>
     <a href="/add" class="btn btn-primary btn-lg pull-right" >添加</a>
+    <article style="margin: 0 auto;font-size: 20px;">
+        <% if(success){ %>
+        <div><%= success %></div>
+        <% } %>
+        <% if(error){ %>
+        <div><%= error %></div>
+        <% } %>
+    </article>
     <div class="table-responsive">
         <table class="table table-hover">
             <tr>
@@ -71,6 +79,7 @@
     </div>
 
   </body>
+
 </html>
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
